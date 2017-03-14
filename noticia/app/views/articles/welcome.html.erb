@@ -1,0 +1,16 @@
+<h1>Bienvenidos!!!</h1>
+<h1>Ultimas Noticias</h1>
+
+
+  <% @articles10.each do |article| %>
+    <div class="articulo">
+      <h3><%= article.titulo %></h3>
+      <article><%= article.bajada %></article>
+      <article><%= article.cuerpo %></article>
+      <p><%= article.created_at %></p>
+      <p><%= article.comments.length %></p>
+      <%= link_to 'Mostrar', article_path(article) %>
+    </div>
+  <% end %>
+
+<%= link_to 'Administrar', controller: 'articles' %>

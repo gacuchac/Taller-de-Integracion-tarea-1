@@ -1,0 +1,26 @@
+<h1>Administrar Noticias</h1>
+
+<table>
+  <tr>
+    <th>Titulo</th>
+    <th>Bajada</th>
+    <th>Cuerpo</th>
+    <th>Fecha de Publicación</th>
+  </tr>
+
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.titulo %></td>
+      <td><%= article.bajada %></td>
+      <td><%= article.cuerpo %></td>
+      <td><%= article.created_at %></td>
+      <td><%= link_to 'Mostrar', article_path(article) %></td>
+      <td><%= link_to 'Editar', edit_article_path(article) %></td>
+      <td><%= link_to 'Destruir', article_path(article),
+              method: :delete,
+              data: { confirm: 'Estás seguro?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'Nuevo Articulo', new_article_path %>
+<%= link_to 'Inicio', root_path %>

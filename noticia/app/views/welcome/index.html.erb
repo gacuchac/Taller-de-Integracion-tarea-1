@@ -1,0 +1,23 @@
+<h1>Bienvenidos!!!</h1>
+<h1>Ultimas Noticias</h1>
+
+<table>
+  <tr>
+    <th>Titulo</th>
+    <th>Bajada</th>
+    <th>Cuerpo</th>
+    <th>Fecha de Publicación</th>
+  </tr>
+
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.titulo %></td>
+      <td><%= article.bajada %></td>
+      <td><%= article.cuerpo %></td>
+      <td><%= article.created_at %></td>
+      <td><%= link_to 'Mostrar', article_path(article) %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'Ultimas Noticias', controller: 'articles' %>
+<%= link_to 'Nuevo Articulo', new_article_path %>
